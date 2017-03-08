@@ -27,7 +27,7 @@ if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
     mv $LOCAL_SOURCE_DIR/configuration/settings.xml $HOME/.m2
   fi
 
-  #Â We move the rest of the configuration, if provided to the place where the app will run
+  # We move the rest of the configuration, if provided to the place where the app will run
   cp -v $LOCAL_SOURCE_DIR/configuration/* $DEPLOY_DIR
 fi
 
@@ -53,10 +53,10 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
 
   echo "Found pom.xml... attempting to build with 'mvn ${MAVEN_ARGS}'"
 
-  echo "Using $(mvnw --version)"
+  echo "Using $(./mvnw --version)"
 
   # Execute the actual build
-  mvnw $MAVEN_ARGS
+  ./mvnw $MAVEN_ARGS
 
   ERR=$?
   if [ $ERR -ne 0 ]; then
@@ -90,10 +90,10 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
   echo "Found gradle.build ... attempting to build with 'gradle -s ${BUILDER_ARGS}'"
 
   echo "Gradle version:"
-  gradlew --version
+  ./gradlew --version
 
   # Execute the actual build
-  gradlew -s $BUILDER_ARGS
+  ./gradlew -s $BUILDER_ARGS
 
   ERR=$?
   if [ $ERR -ne 0 ]; then
@@ -108,7 +108,7 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
 
 
   # clean up after maven
-  gradlew clean
+  ./gradlew clean
 #  if [ -d "$HOME/.m2/repository" ]; then
 #    rm -r "$HOME/.m2/repository"
 #  fi
