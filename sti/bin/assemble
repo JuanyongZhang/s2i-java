@@ -53,10 +53,10 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
 
   echo "Found pom.xml... attempting to build with 'mvn ${MAVEN_ARGS}'"
 
-  echo "Using $(mvn --version)"
+  echo "Using $(mvnw --version)"
 
   # Execute the actual build
-  mvn $MAVEN_ARGS
+  mvnw $MAVEN_ARGS
 
   ERR=$?
   if [ $ERR -ne 0 ]; then
@@ -90,10 +90,10 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
   echo "Found gradle.build ... attempting to build with 'gradle -s ${BUILDER_ARGS}'"
 
   echo "Gradle version:"
-  gradle --version
+  gradlew --version
 
   # Execute the actual build
-  gradle -s $BUILDER_ARGS
+  gradlew -s $BUILDER_ARGS
 
   ERR=$?
   if [ $ERR -ne 0 ]; then
@@ -108,7 +108,7 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
 
 
   # clean up after maven
-  gradle clean
+  gradlew clean
 #  if [ -d "$HOME/.m2/repository" ]; then
 #    rm -r "$HOME/.m2/repository"
 #  fi

@@ -79,8 +79,8 @@
                   "annotations": {
                      "description": "Java OpenJDK S2I image",
                      "iconClass": "icon-java",
-                     "tags": "builder,java,maven,gradle,springboot,vertx,wildfly-swarm,dropwizard,microservices,fatjar",
-                     "supports": "java:8,maven:3,gradle:2.6",
+                     "tags": "builder,java,springboot,vertx,wildfly-swarm,dropwizard,microservices,fatjar",
+                     "supports": "java:8",
                      "version": "1.0"
                   }
                }
@@ -337,7 +337,7 @@
             "annotations": {
                "description": "Sample Spring Boot helloworld built with gradle",
                "iconClass": "icon-jboss",
-               "tags": "instant-app,springboot,gradle,java"
+               "tags": "instant-app,springboot,java"
             }
 
          },
