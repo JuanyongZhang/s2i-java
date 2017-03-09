@@ -4,7 +4,7 @@ MAINTAINER Jorge Morales <jmorales@redhat.com>
 # HOME in base image is /opt/app-root/src
 
 # Install build tools on top of base image
-# Java jdk 8, Maven 3.3, Gradle 2.6
+# Java jdk 8, Maven 3.3, Gradle 3.4.1
 RUN INSTALL_PKGS="tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel" && \
     yum install -y --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
