@@ -52,7 +52,7 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
   MAVEN_ARGS="$MAVEN_ARGS -Djava.net.preferIPv4Stack=true ${MAVEN_ARGS_APPEND}"
 
   echo "Found pom.xml... attempting to build with 'mvn ${MAVEN_ARGS}'"
-  chmod -R a+rwX ./mvnw
+  chmod 755 ./mvnw
   echo "Using $(./mvnw --version)"
 
   # Execute the actual build
@@ -82,7 +82,7 @@ elif [ -f "$LOCAL_SOURCE_DIR/build.gradle" ]; then
 
   pushd $LOCAL_SOURCE_DIR &> /dev/null
   
-  chmod -R a+rwX ./gradlew
+  chmod 755 ./gradlew
   
   if [ -z "$BUILDER_ARGS" ]; then
     export BUILDER_ARGS="build -x test"
